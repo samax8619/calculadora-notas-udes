@@ -8,6 +8,8 @@ function toggleTercerCorte() {
   } else {
     contenedor.style.display = "none";
     boton.textContent = "Agregar mi propia nota del tercer corte";
+    document.getElementById("corte3").value = "";
+    calcularNotaFinal(); // recalcula sin el tercer corte
   }
 }
 
@@ -19,11 +21,10 @@ function calcularNotaFinal() {
   const resultadoDiv = document.getElementById("resultado");
 
   if (isNaN(c1) || isNaN(c2)) {
-    resultadoDiv.innerHTML = '<p class="mensaje-rojo">Por favor, ingresa las notas del primer y segundo corte.</p>';
+    resultadoDiv.innerHTML = '';
     return;
   }
 
-  
   if (!contenedorVisible || isNaN(c3)) {
     const acumulado = c1 * 0.3 + c2 * 0.3;
     const notaNecesaria = (3.0 - acumulado) / 0.4;
@@ -42,7 +43,7 @@ function calcularNotaFinal() {
     return;
   }
 
-  // Si se ingresan los tres cortes, calcular nota final
+  // Si se ingresaron los tres cortes
   const resultado1 = c1 * 0.3;
   const resultado2 = c2 * 0.3;
   const resultado3 = c3 * 0.4;
@@ -59,44 +60,44 @@ function calcularNotaFinal() {
   if (notaFinal >= 2.96 && notaFinal <= 2.99) {
     mensaje += '<p class="mensaje-verde">Podrías aprobar con redondeo a 3.0.</p>';
   } else if (notaFinal >= 3.0) {
-    mensaje += '<p class="mensaje-verde">¡Felicidades! Con esa nota pasarás la materia.</p>';
-  } else if (notaFinal >= 2.0) {
-    mensaje += '<p class="mensaje-rojo">No alcanzas 3.0, pero podrías solicitar habilitación.</p>';
+    mensaje += '<p class="mensaje-verde">¡Felicidades! Con esa nota pasarás la materia!</p>';
+  } else if (notaFinal >= 2.5 && notaFinal < 3.0) {
+    mensaje += '<p class="mensaje-habilitacion">Recuerda: si te lo permiten, puedes solicitar una habilitación (nota definitiva entre 2.5 y 2.9).</p>';
   } else {
-    mensaje += '<p class="mensaje-rojo">No alcanzarías ni el mínimo para habilitar.</p>';
+    mensaje += '<p class="mensaje-rojo">No alcanzarías el mínimo para habilitar.</p>';
   }
 
   resultadoDiv.innerHTML = mensaje;
 }
 
-// Navegación con Enter
+// Ejecutar cuando el documento esté cargado
 document.addEventListener("DOMContentLoaded", function () {
   const corte1 = document.getElementById("corte1");
   const corte2 = document.getElementById("corte2");
   const corte3 = document.getElementById("corte3");
 
-  if (corte1) {
-    corte1.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        corte2.focus();
-      }
-    });
-  }
+  // Calcular automáticamente al escribir corte1 y corte2
+  corte1.addEventListener("input", calcularNotaFinal);
+  corte2.addEventListener("input", calcularNotaFinal);
+  if (corte3) corte3.addEventListener("input", calcularNotaFinal);
 
-  if (corte2) {
-    corte2.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const visible = document.getElementById("tercerCorteContainer").style.display === "block";
-        if (visible && corte3) {
-          corte3.focus();
-        } else {
-          calcularNotaFinal();
-        }
+  // Navegación con Enter
+  corte1.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      corte2.focus();
+    }
+  });
+
+  corte2.addEventListener("keydown", function (e) {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      const visible = document.getElementById("tercerCorteContainer").style.display === "block";
+      if (visible && corte3) {
+        corte3.focus();
       }
-    });
-  }
+    }
+  });
 
   if (corte3) {
     corte3.addEventListener("keydown", function (e) {
