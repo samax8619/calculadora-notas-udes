@@ -1,0 +1,123 @@
+/* General */
+body {
+  margin: 10px;
+  font-family: Arial, sans-serif;
+  background-color: white;
+  color: #333;
+}
+
+header {
+  background-color: #003366;
+  position: relative;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.logo-universidad {
+  height: 90px;
+  max-width: 100%;
+  height: auto;
+}
+
+.logo-universidad-container {
+  display: flex;
+  justify-content: center;
+}
+
+.logo-sistemas {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  height: 60px;
+  max-width: 100%;
+}
+
+main {
+  max-width: 400px;
+  width: 90%;
+  margin: 30px auto;
+  padding: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input, button {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #003366;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+button:hover {
+  background-color: #0055aa;
+}
+
+#resultado {
+  margin-top: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.mensaje-rojo {
+  color: red;
+}
+
+.mensaje-verde {
+  color: green;
+}
+
+footer {
+  margin-top: 40px;
+  text-align: center;
+  font-size: 14px;
+  padding: 10px;
+  border-top: 1px solid #ccc;
+  color: #666;
+}
+
+/* Loader */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.img-loader {
+  width: 100px;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.texto-loader {
+  font-size: 18px;
+  font-weight: bold;
+  color: #666;
+  font-style: italic;
+}

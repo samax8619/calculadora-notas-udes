@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora de Nota Final - UDES</title>
+  <link rel="stylesheet" href="index.css" />
+  <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
+</head>
+<body>
+
+  
+  <div id="loader">
+    <img src="https://i.gifer.com/origin/eb/eb8fd97b63e356f2f726c4c553dcfef6.gif" alt="Cargando" class="img-loader">
+    <p class="texto-loader">Now Loading...</p>
+  </div>
+
+  <header>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZiHwIpgaEOSOBEc7zs4HUrHMs3prv8wcH6A&s" alt="Logo Sistemas" class="logo-sistemas" />
+    <div class="logo-universidad-container">
+      <a href="https://udes.edu.co/" target="_blank" rel="noopener noreferrer">
+        <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="Logo Universidad" class="logo-universidad" />
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <h2>Calculadora de Nota Final</h2>
+
+    <form>
+      <label for="corte1">Nota del primer corte (30%):</label>
+      <input type="number" id="corte1" step="0.01" min="0" max="5" placeholder="Ej: 3.5" />
+
+      <label for="corte2">Nota del segundo corte (30%):</label>
+      <input type="number" id="corte2" step="0.01" min="0" max="5" placeholder="Ej: 4.0" />
+
+    
+      <button type="button" id="toggleCorte3Btn" onclick="toggleTercerCorte()">Agregar mi propia nota del tercer corte</button>
+
+     
+      <div id="tercerCorteContainer" style="display: none;">
+        <label for="corte3">Nota del tercer corte (40%):</label>
+        <input type="number" id="corte3" step="0.01" min="0" max="5" placeholder="Ej: 3.0" />
+      </div>
+
+      <button type="button" onclick="calcularNotaFinal()"> 👉 Calcular Nota </button>
+    </form>
+
+    <div id="resultado"></div>
+
+    <div style="margin-top: 30px;">
+      <p>¿Quieres saber cómo se calcula un corte?</p>
+      <a href="index2.html"><button type="button">Ir al cálculo detallado de un corte</button></a>
+    </div>
+  </main>
+
+  <footer>
+    Universidad de Santander - Facultad de Ingenierías y Tecnologías <br />
+    Sistemas UDES © 2025
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+   
+    window.addEventListener("load", function () {
+      document.getElementById("loader").style.display = "none";
+    });
+
+    function toggleTercerCorte() {
+      const contenedor = document.getElementById("tercerCorteContainer");
+      const boton = document.getElementById("toggleCorte3Btn");
+
+      if (contenedor.style.display === "none") {
+        contenedor.style.display = "block";
+        boton.textContent = "Ocultar campo del tercer corte";
+      } else {
+        contenedor.style.display = "none";
+        boton.textContent = "Agregar mi propia nota del tercer corte";
+      }
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cálculo detallado de un corte</title>
+    <link rel="stylesheet" href="index2.css" />
+    <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
+</head>
+<body>
+
+    
+    <div id="loader">
+        <img src="img/ChatGPT Image 14 jul 2025, 01_15_31 p.m..png" alt="Cargando" class="img-loader">
+        <p class="texto-loader">Now Loading...</p>
+    </div>
+
+    <main>
+        <h2>Calculadora de un solo corte</h2>
+
+        <div class="instrucciones">
+            <h3>📌 Instrucciones</h3>
+            <p>
+                Esta calculadora te permite estimar tu calificación parcial en un solo corte académico.
+                Debes ingresar cada una de las actividades evaluadas (exposición, talleres, actividades, proyectos, sustentaciones, etc.)
+                junto con el porcentaje que cada una representa en ese corte.
+            </p>
+            <p>
+                🔸 <strong>Importante:</strong> Los porcentajes son asignados por tu profesor. Verifica siempre cuánto vale cada actividad.
+            </p>
+            <p>
+                🔹 Puedes agregar tantas notas como necesites y asignarles su porcentaje individual.
+                El sistema calculará automáticamente el valor acumulado del corte.
+            </p>
+            <p>
+                ✅ Recuerda que la suma de los porcentajes debe ser igual al 100% para que el resultado sea representativo del corte completo.
+            </p>
+        </div>
+
+        <div id="notas-container">
+          
+        </div>
+
+        <div class="botones">
+            <button onclick="agregarNota()">Agregar otra nota</button>
+            <button onclick="quitarNota()">Quitar última nota</button>
+        </div>
+
+        <div style="margin-top: 20px;">
+            <button onclick="calcularCorte()">Calcular corte</button>
+        </div>
+
+        <div id="resultado" class="resultado"></div>
+
+        <div class="volver">
+            <a href="idex.html">
+                <button>Volver a nota final</button>
+            </a>
+        </div>
+    </main>
+<footer>
+        Universidad de Santander - Facultad de Ingenierías y Tecnologías <br />
+        Sistemas UDES © 2025
+    </footer>
+    <script src="script2.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("loader").style.display = "none";
+        });
+    </script>
+</body>
+</html>
