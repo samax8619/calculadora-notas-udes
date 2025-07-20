@@ -1,110 +1,72 @@
-function toggleTercerCorte() {
-  const contenedor = document.getElementById("tercerCorteContainer");
-  const boton = document.getElementById("toggleCorte3Btn");
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cálculo detallado de un corte</title>
+    <link rel="stylesheet" href="index2.css" />
+    <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
+</head>
+<body>
 
-  if (contenedor.style.display === "none") {
-    contenedor.style.display = "block";
-    boton.textContent = "Ocultar campo del tercer corte";
-  } else {
-    contenedor.style.display = "none";
-    boton.textContent = "Agregar mi propia nota del tercer corte";
-    document.getElementById("corte3").value = "";
-    calcularNotaFinal(); // recalcula sin el tercer corte
-  }
-}
+    
+    <div id="loader">
+        <img src="img/ChatGPT Image 14 jul 2025, 01_15_31 p.m..png" alt="Cargando" class="img-loader">
+        <p class="texto-loader">Now Loading...</p>
+    </div>
 
-function calcularNotaFinal() {
-  const c1 = parseFloat(document.getElementById("corte1").value);
-  const c2 = parseFloat(document.getElementById("corte2").value);
-  const contenedorVisible = document.getElementById("tercerCorteContainer").style.display === "block";
-  const c3 = contenedorVisible ? parseFloat(document.getElementById("corte3").value) : null;
-  const resultadoDiv = document.getElementById("resultado");
+    <main>
+        <h2>Calculadora de un solo corte</h2>
 
-  if (isNaN(c1) || isNaN(c2)) {
-    resultadoDiv.innerHTML = '';
-    return;
-  }
+        <div class="instrucciones">
+            <h3>📌 Instrucciones</h3>
+            <p>
+                Esta calculadora te permite estimar tu calificación parcial en un solo corte académico.
+                Debes ingresar cada una de las actividades evaluadas (exposición, talleres, actividades, proyectos, sustentaciones, etc.)
+                junto con el porcentaje que cada una representa en ese corte.
+            </p>
+            <p>
+                🔸 <strong>Importante:</strong> Los porcentajes son asignados por tu profesor. Verifica siempre cuánto vale cada actividad.
+            </p>
+            <p>
+                🔹 Puedes agregar tantas notas como necesites y asignarles su porcentaje individual.
+                El sistema calculará automáticamente el valor acumulado del corte.
+            </p>
+            <p>
+                ✅ Recuerda que la suma de los porcentajes debe ser igual al 100% para que el resultado sea representativo del corte completo.
+            </p>
+        </div>
 
-  if (!contenedorVisible || isNaN(c3)) {
-    const acumulado = c1 * 0.3 + c2 * 0.3;
-    const notaNecesaria = (3.0 - acumulado) / 0.4;
+        <div id="notas-container">
+          
+        </div>
 
-    let mensaje = `<p>Acumulado con dos cortes: <strong>${acumulado.toFixed(2)}</strong></p>`;
+        <div class="botones">
+            <button onclick="agregarNota()">Agregar otra nota</button>
+            <button onclick="quitarNota()">Quitar última nota</button>
+        </div>
 
-    if (notaNecesaria > 5) {
-      mensaje += `<p class="mensaje-rojo">Necesitarías <strong>${notaNecesaria.toFixed(2)}</strong> en el tercer corte para aprobar con 3.0, lo cual no es posible.</p>`;
-    } else if (notaNecesaria <= 0) {
-      mensaje += `<p class="mensaje-verde">¡Felicidades! Ya apruebas sin importar la nota del tercer corte.</p>`;
-    } else {
-      mensaje += `<p class="mensaje-verde">Necesitas al menos <strong>${notaNecesaria.toFixed(2)}</strong> en el tercer corte para aprobar con 3.0.</p>`;
-    }
+        <div style="margin-top: 20px;">
+            <button onclick="calcularCorte()">Calcular corte</button>
+        </div>
 
-    resultadoDiv.innerHTML = mensaje;
-    return;
-  }
+        <div id="resultado" class="resultado"></div>
 
-  // Si se ingresaron los tres cortes
-  const resultado1 = c1 * 0.3;
-  const resultado2 = c2 * 0.3;
-  const resultado3 = c3 * 0.4;
-  const notaFinal = resultado1 + resultado2 + resultado3;
-
-  let mensaje = `
-    <p>Resumen de cálculos:</p>
-    <p>Corte 1 (30%): ${resultado1.toFixed(2)}</p>
-    <p>Corte 2 (30%): ${resultado2.toFixed(2)}</p>
-    <p>Corte 3 (40%): ${resultado3.toFixed(2)}</p>
-    <p><strong>Nota final estimada: ${notaFinal.toFixed(2)}</strong></p>
-  `;
-
-  if (notaFinal >= 2.96 && notaFinal <= 2.99) {
-    mensaje += '<p class="mensaje-verde">Podrías aprobar con redondeo a 3.0.</p>';
-  } else if (notaFinal >= 3.0) {
-    mensaje += '<p class="mensaje-verde">¡Felicidades! Con esa nota pasarás la materia!</p>';
-  } else if (notaFinal >= 2.5 && notaFinal < 3.0) {
-    mensaje += '<p class="mensaje-habilitacion">Recuerda: si te lo permiten, puedes solicitar una habilitación (nota definitiva entre 2.5 y 2.9).</p>';
-  } else {
-    mensaje += '<p class="mensaje-rojo">No alcanzarías el mínimo para habilitar.</p>';
-  }
-
-  resultadoDiv.innerHTML = mensaje;
-}
-
-// Ejecutar cuando el documento esté cargado
-document.addEventListener("DOMContentLoaded", function () {
-  const corte1 = document.getElementById("corte1");
-  const corte2 = document.getElementById("corte2");
-  const corte3 = document.getElementById("corte3");
-
-  // Calcular automáticamente al escribir corte1 y corte2
-  corte1.addEventListener("input", calcularNotaFinal);
-  corte2.addEventListener("input", calcularNotaFinal);
-  if (corte3) corte3.addEventListener("input", calcularNotaFinal);
-
-  // Navegación con Enter
-  corte1.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      corte2.focus();
-    }
-  });
-
-  corte2.addEventListener("keydown", function (e) {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const visible = document.getElementById("tercerCorteContainer").style.display === "block";
-      if (visible && corte3) {
-        corte3.focus();
-      }
-    }
-  });
-
-  if (corte3) {
-    corte3.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        calcularNotaFinal();
-      }
-    });
-  }
-});
+        <div class="volver">
+            <a href="idex.html">
+                <button>Volver a nota final</button>
+            </a>
+        </div>
+    </main>
+<footer>
+        Universidad de Santander -  Ingenierías de sistemas <br />
+        Sistemas UDES © 2025
+    </footer>
+    <script src="script2.js"></script>
+    <script>
+        window.addEventListener("load", function () {
+            document.getElementById("loader").style.display = "none";
+        });
+    </script>
+</body>
+</html>
