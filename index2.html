@@ -8,60 +8,72 @@
     <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
 </head>
 <body>
-
-    
+    <!-- Loader -->
     <div id="loader">
-       <img src="img/logo-universidad-de-santander.webp" alt="Cargando" class="img-loader">
+        <img src="img/logo-universidad-de-santander.webp" alt="Cargando" class="img-loader">
         <p class="texto-loader">Now Loading...</p>
     </div>
 
     <main>
-        <h2>Simulador de Nota por Corte</h2>
+        <h2>📘 Simulador de Nota por Corte</h2>
 
         <div class="instrucciones">
             <h3>📌 Instrucciones</h3>
             <p>
-                Esta calculadora te permite estimar tu calificación parcial en un solo corte académico.
+                Esta calculadora te permite estimar tu calificación en cada corte académico.
                 Debes ingresar cada una de las actividades evaluadas (exposición, talleres, actividades, proyectos, sustentaciones, etc.)
                 junto con el porcentaje que cada una representa en ese corte.
             </p>
             <p>
-                🔸 <strong>Importante:</strong> Los porcentajes son asignados por tu profesor. Verifica siempre cuánto vale cada actividad.
+                🔸 <strong>Importante:</strong> El <strong>Corte 1</strong> equivale al <strong>30%</strong>, 
+                el <strong>Corte 2</strong> también al <strong>30%</strong>, 
+                y el <strong>Corte 3</strong> al <strong>40%</strong> de la nota final.
             </p>
             <p>
-                🔹 Puedes agregar tantas notas como necesites y asignarles su porcentaje individual.
-                El sistema calculará automáticamente el valor acumulado del corte.
+                🔹 Dentro de cada corte, los porcentajes de las actividades deben sumar <strong>100%</strong>.
             </p>
             <p>
-                ✅ Recuerda que la suma de los porcentajes debe ser igual al 100% para que el resultado sea representativo del corte completo.
+                ✅ El sistema calculará tanto la nota del corte (escala 0–5) como su aporte real a la nota final.
             </p>
         </div>
 
-        <div id="notas-container">
-          
+        <!-- Selección de cortes -->
+        <div class="seleccion-corte">
+            <h3>Selecciona el corte que deseas calcular:</h3>
+            <button onclick="seleccionarCorte(1)">Corte 1 (30%)</button>
+            <button onclick="seleccionarCorte(2)">Corte 2 (30%)</button>
+            <button onclick="seleccionarCorte(3)">Corte 3 (40%)</button>
         </div>
+
+        <!-- Notas dinámicas -->
+        <div id="notas-container"></div>
 
         <div class="botones">
             <button onclick="agregarNota()">Agregar otra nota</button>
             <button onclick="quitarNota()">Quitar última nota</button>
         </div>
 
+        <!-- Calcular -->
         <div style="margin-top: 20px;">
             <button onclick="calcularCorte()">Calcular corte</button>
         </div>
 
+        <!-- Resultado -->
         <div id="resultado" class="resultado"></div>
 
+        <!-- Volver -->
         <div class="volver">
             <a href="index.html">
                 <button>Volver a nota final</button>
             </a>
         </div>
     </main>
-<footer>
-        Universidad de Santander -   Ingenierías de sistemas <br />
+
+    <footer>
+        Universidad de Santander - Ingenierías de sistemas <br />
         Sistemas UDES © 2025
     </footer>
+
     <script src="script2.js"></script>
     <script>
         window.addEventListener("load", function () {
