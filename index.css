@@ -25,16 +25,8 @@ header {
   justify-content: center;
 }
 
-.logo-sistemas {
-  position: absolute;
-  top: 11px;
-  right: 5px;
-  height: 60px;
-  max-width: 100%;
-}
-
 main {
-  max-width: 60px;
+  max-width: 50px;
   width: 90%;
   margin: 40px auto;
   padding: 20px;
