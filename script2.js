@@ -1,3 +1,4 @@
+
 let contadorNotas = 0;
 let corteActual = null; // 1, 2 o 3
 
@@ -20,7 +21,7 @@ function agregarNota() {
   div.className = "nota-grupo";
   div.id = `nota${contadorNotas}`;
   div.innerHTML = `
-    <input type="number" placeholder="Nota ${contadorNotas}" step="0.01" min="0" max="5" class="nota">
+    <input type="number" placeholder="Nota ${contadorNotas}" step="0.01" min="-5" max="5" class="nota">
     <input type="number" placeholder="% de la nota" step="0.01" min="0" max="100" class="porcentaje">
   `;
   container.appendChild(div);
@@ -56,16 +57,20 @@ function calcularCorte() {
       resultadoDiv.innerHTML = "⚠️ Completa todas las notas y porcentajes.";
       return;
     }
-    if (nota > 5) {
-      resultadoDiv.innerHTML = "⚠️ Error: La nota no puede ser mayor a 5.0.";
-      return;
-    }
-    if (porcentaje < 0) {
-      resultadoDiv.innerHTML = "⚠️ El porcentaje no puede ser negativo.";
+
+    // Validación de rango de nota (-5 a 5)
+    if (nota < 0 || nota > 5) {
+      resultadoDiv.innerHTML = "⚠️ Error: La nota debe estar entre 0 y 5.0.";
       return;
     }
 
-    // Suma sin exigir que total = 100; luego normalizamos
+    // Validación de porcentaje
+    if (porcentaje < 0 || porcentaje > 100) {
+      resultadoDiv.innerHTML = "⚠️ El porcentaje debe estar entre 0 y 100.";
+      return;
+    }
+
+    // Suma ponderada
     sumaPonderada += nota * porcentaje;
     sumaPorcentajes += porcentaje;
   }
