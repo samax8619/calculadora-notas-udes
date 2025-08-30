@@ -1,9 +1,10 @@
 
+
 body {
     font-family: Arial, sans-serif;
     margin: 20px;
-    background-color: white;
-    color: #333;
+      background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0015__MG_7646.jpg") no-repeat center center / cover;
+    color: #353434;
 }
 
 main {
@@ -15,22 +16,38 @@ main {
 
 .instrucciones {
     background-color: #f1f1f1;
-    border-left: 5px solid #003366;
+    border-left: 5px solid #0352A6;
     padding: 15px;
     margin-bottom: 25px;
     border-radius: 5px;
     font-size: 15px;
-    color: #333;
+    color: #000000;
     text-align: left;
 }
 
 .instrucciones h3 {
     margin-top: 0;
-    color: #003366;
+    color: #0352A6;
+}
+.seleccion-corte h3 {
+    color: #ffffff;
+}
+#resultado {
+    margin-top: 30px;
+    font-weight: bold;
+    font-size: 18px;
+    background-color: #ffffff;
+    color: #181414;
+    padding: 10px;
+    border-radius: 8px;
+    border-bottom: 1px dashed #000000;
+    display: inline-block;
+    text-align: left;
 }
 
 .nota-grupo {
     margin-bottom: 15px;
+    
 }
 
 input {
@@ -45,7 +62,7 @@ button {
     font-size: 16px;
     margin: 5px;
     cursor: pointer;
-    background-color: #003366;
+    background-color: #0352A6;
     color: white;
     border: none;
     border-radius: 5px;
@@ -71,8 +88,10 @@ footer {
     text-align: center;
     font-size: 14px;
     padding: 10px;
-    border-top: 1px solid #ccc;
-    color: #666;
+    border-top: 1px solid #000000;
+    color: #000000;
+     background-color:  #0352A6;
+     
 }
 
 .volver {
@@ -102,6 +121,6 @@ footer {
 .texto-loader {
     font-size: 18px;
     font-weight: bold;
-    color: #666;
+    color: #ffffff;
     font-style: italic;
 }
