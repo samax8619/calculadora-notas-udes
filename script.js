@@ -20,6 +20,12 @@ function calcularNotaFinal() {
   const c3 = contenedorVisible ? parseFloat(document.getElementById("corte3").value) : null;
   const resultadoDiv = document.getElementById("resultado");
 
+  // Validación de notas no mayores a 5
+  if ((c1 > 5) || (c2 > 5) || (contenedorVisible && c3 > 5)) {
+    resultadoDiv.innerHTML = '<p class="mensaje-rojo">⚠️ Error: La nota no puede ser mayor que 5.0</p>';
+    return;
+  }
+
   if (isNaN(c1) || isNaN(c2)) {
     resultadoDiv.innerHTML = '';
     return;
