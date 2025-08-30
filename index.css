@@ -1,14 +1,14 @@
 /* General */
 body {
-  margin: -1px;
+  margin: -1;
   font-family: Arial, sans-serif;
-  background: url("") no-repeat center center / cover;
+  background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0013__MG_7650.jpg") no-repeat center center / cover;
   color: #000000;
 }
 
 
 header {
-  background-color: #ffffff;
+
   position: relative;
   padding: 20px ;
   text-align: center;
@@ -92,8 +92,9 @@ footer {
   font-size: 14px;
   padding: 10px;
   border-top: 1px solid #000000;
-  color: #000000;
+  color: #e7dcdc;
    background-color:  #0352A6;
+   
 }
 
 /* Loader */
@@ -123,4 +124,5 @@ footer {
   color: #666;
   font-style: italic;
 }
+
 
