@@ -2,7 +2,7 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0013__MG_7650.jpg") no-repeat center center fixed;
+  background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0013__MG_7650.jpg") no-repeat center center / cover;
   background-size: cover;
   color: #ffffff; /* en index2.css este puede ser #353434 */
 }
