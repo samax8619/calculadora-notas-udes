@@ -21,10 +21,11 @@ function calcularNotaFinal() {
   const resultadoDiv = document.getElementById("resultado");
 
   // Validación de notas no mayores a 5
-  if ((c1 > 5) || (c2 > 5) || (contenedorVisible && c3 > 5)) {
-    resultadoDiv.innerHTML = '<p class="mensaje-rojo">⚠️ Error: La nota no puede ser mayor que 5.0</p>';
-    return;
-  }
+  // Validación de notas fuera de rango (-5 a 5)
+if ((c1 < 0|| c1 > 5) || (c2 < 0 || c2 > 5) || (contenedorVisible && (c3 < 0 || c3 > 5))) {
+  resultadoDiv.innerHTML = '<p class="mensaje-rojo">⚠️ Error: La nota debe estar entre 0 y 5.0</p>';
+  return;
+}
 
   if (isNaN(c1) || isNaN(c2)) {
     resultadoDiv.innerHTML = '';
