@@ -1,23 +1,15 @@
-/* General */
+
 body {
-  margin: -1;
+  margin: 0;
   font-family: Arial, sans-serif;
-        background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0015__MG_7646.jpg") no-repeat center center / cover;
-  color: #ffffff;
+  background: url("https://udes.edu.co/images/micrositios/museo/galeria/_0013__MG_7650.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #ffffff; /* en index2.css este puede ser #353434 */
 }
-
-
 header {
-
   position: relative;
-  padding: 20px ;
+  padding: 20px;
   text-align: center;
-}
-
-.logo-universidad {
-  height: 90px;
-  max-width: 100%;
-  height: auto;
 }
 
 .logo-universidad-container {
@@ -25,12 +17,28 @@ header {
   justify-content: center;
 }
 
+.logo-universidad {
+  max-width: 100%;
+  height: 190px;
+}
+
 main {
-  max-width: 50px;
+  max-width: 400px;
   width: 90%;
   margin: 40px auto;
   padding: 20px;
   text-align: center;
+}
+
+main h2 {
+  background: rgba(255, 255, 255, 0.8);
+  color: #000000;
+  padding: 12px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  border: 2px solid #0352A6;
+  display: inline-block;
+  margin-bottom: 20px;
 }
 
 form {
@@ -41,11 +49,33 @@ form {
 }
 
 label {
+  display: block;
+  background: rgba(3, 82, 166, 0.2);
+  color: #000000;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border-left: 4px solid #0352A6;
   font-weight: bold;
   margin-bottom: 5px;
+  text-align: left;
 }
 
-input, button {
+.enlace-info {
+  display: block;
+  background: #fff3cd;
+  color: #000000;
+  padding: 12px 15px;
+  border-radius: 8px;
+  border: 2px solid #856404;
+  font-weight: bold;
+  margin-bottom: 12px;
+  text-align: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+
+input, 
+button {
   width: 100%;
   box-sizing: border-box;
   padding: 10px;
@@ -58,16 +88,33 @@ button {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
 }
 
 button:hover {
-  background-color: #0352A6;
+  background-color: #004080;
 }
 
-#resultado {
-  margin-top: 25px;
-  font-size: 18px;
-  font-weight: bold;
+#resultado p {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border: 2px solid #0352A6;
+  margin-bottom: 12px;
+  text-align: left;
+  color: #000000;  /* ← aseguremos que esté en negro */
+}
+
+
+#resultado p {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  border: 2px solid #0352A6;
+  margin-bottom: 12px;
+  text-align: left;
 }
 
 .mensaje-rojo {
@@ -78,18 +125,20 @@ button:hover {
   color: green;
 }
 
+.mensaje-habilitacion {
+  color: orange;
+}
+
 footer {
-  margin-top: 40px;
+  margin-top: 440px;
   text-align: center;
   font-size: 14px;
   padding: 10px;
   border-top: 1px solid #000000;
   color: #e7dcdc;
-   background-color:  #0352A6;
-   
+  background-color: #0352A6;
 }
 
-/* Loader */
 #loader {
   position: fixed;
   top: 0;
@@ -116,5 +165,4 @@ footer {
   color: #666;
   font-style: italic;
 }
-
 
