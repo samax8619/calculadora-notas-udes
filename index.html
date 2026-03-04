@@ -6,29 +6,31 @@
   <title>Simulador Académico - UDES</title>
   <link rel="stylesheet" href="index.css" />
   <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
-</head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-C4Y2V5KM24"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-C4Y2V5KM24');
-</script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-C4Y2V5KM24"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-C4Y2V5KM24');
+  </script>
+
+</head>
+
 <body>
 
-  
   <div id="loader">
-     <img src="img/logo-universidad-de-santander.webp" alt="Cargando" class="img-loader">
+    <img src="img/logo-universidad-de-santander.webp" alt="Cargando" class="img-loader">
     <p class="texto-loader">Now Loading...</p>
   </div>
 
   <header>
-  
     <div class="logo-universidad-container">
       <a href="https://udes.edu.co/" target="_blank" rel="noopener noreferrer">
-        <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="Logo Universidad" class="logo-universidad" />
+        <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" 
+             alt="Logo Universidad" 
+             class="logo-universidad" />
       </a>
     </div>
   </header>
@@ -37,22 +39,22 @@
     <h2>Simulador Académico</h2>
 
     <form>
-      <label for="corte1">Nota del primer corte (30%):</strong></label>
+      <label for="corte1">Nota del primer corte (30%):</label>
       <input type="number" id="corte1" step="0.01" min="0" max="5" placeholder="Ej: 3.5" />
 
       <label for="corte2">Nota del segundo corte (30%):</label>
       <input type="number" id="corte2" step="0.01" min="0" max="5" placeholder="Ej: 4.0" />
 
-    
-      <button type="button" id="toggleCorte3Btn" onclick="toggleTercerCorte()">Agregar mi propia nota del tercer corte</button>
+      <button type="button" id="toggleCorte3Btn" onclick="toggleTercerCorte()">
+        Agregar mi propia nota del tercer corte
+      </button>
 
-     
       <div id="tercerCorteContainer" style="display: none;">
         <label for="corte3">Nota del tercer corte (40%):</label>
         <input type="number" id="corte3" step="0.01" min="0" max="5" placeholder="Ej: 3.0" />
       </div>
 
-      <button type="button" onclick="calcularNotaFinal()">  Calcular Nota </button>
+      <button type="button" onclick="calcularNotaFinal()">Calcular Nota</button>
     </form>
 
     <div id="resultado"></div>
@@ -60,26 +62,27 @@
     <div style="margin-top: 30px;">
       <p class="enlace-info">¿Quieres saber cómo se calcula un corte?</p>
 
-      <a href="index2.html"><button type="button">Ir al cálculo detallado de un corte</button></a>
+      <a href="index2.html">
+        <button type="button">Ir al cálculo detallado de un corte</button>
+      </a>
 
-
-   <p class="sugerencias">
-    ¿Tienes sugerencias o encontraste un error? Escríbeme a mi correo:
-    <a href="samuelumbariba@gmail.com" class="correo-link">
-      samuelumbariba@gmail.com
-    </a>
-  </p>
+      <p class="sugerencias">
+        ¿Tienes sugerencias o encontraste un error? Escríbeme a mi correo:
+        <a href="mailto:samuelumbariba@gmail.com" class="correo-link">
+          samuelumbariba@gmail.com
+        </a>
+      </p>
     </div>
   </main>
 
   <footer>
-    Universidad de Santander -  Ingenierías de sistemas <br />
+    Universidad de Santander - Ingenierías de Sistemas <br />
     Sistemas UDES © 2025
   </footer>
 
   <script src="script.js"></script>
+
   <script>
-   
     window.addEventListener("load", function () {
       document.getElementById("loader").style.display = "none";
     });
@@ -97,5 +100,6 @@
       }
     }
   </script>
+
 </body>
 </html>
