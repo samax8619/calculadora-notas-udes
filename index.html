@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simulador Académico - UDES</title>
+  <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" />
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9C1832VG83"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-9C1832VG83');
+</script>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="Cargando" class="img-loader">
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="texto-loader">Cargando simulador…</p>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-bg"></div>
+    <div class="header-content">
+      <a href="https://udes.edu.co/" target="_blank" rel="noopener noreferrer">
+        <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="Logo Universidad" class="logo-universidad" />
+      </a>
+      <div class="header-text">
+        <span class="header-sub">Ingeniería de Sistemas · UDES</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO BADGE -->
+  <div class="hero-section">
+    <div class="hero-badge">
+      <span class="badge-icon">🎓</span>
+      <span>Simulador Académico</span>
+    </div>
+    <h1 class="hero-title">Calcula tu <em>nota final</em></h1>
+    <p class="hero-desc">Ingresa tus notas por corte y descubre cuánto necesitas para aprobar</p>
+  </div>
+
+  <!-- MAIN CARD -->
+  <main>
+    <div class="card">
+
+      <!-- INFO STRIP -->
+      <div class="info-strip">
+        <div class="strip-item">
+          <span class="strip-num">30%</span>
+          <span class="strip-label">Corte 1</span>
+        </div>
+        <div class="strip-divider"></div>
+        <div class="strip-item">
+          <span class="strip-num">30%</span>
+          <span class="strip-label">Corte 2</span>
+        </div>
+        <div class="strip-divider"></div>
+        <div class="strip-item">
+          <span class="strip-num">40%</span>
+          <span class="strip-label">Corte 3</span>
+        </div>
+      </div>
+
+      <!-- FORM -->
+      <form>
+        <div class="input-group">
+          <label for="corte1">
+            <span class="label-badge c1">C1</span>
+            Primer corte <span class="label-pct">30%</span>
+          </label>
+          <input type="number" id="corte1" step="0.01" min="0" max="5" placeholder="0.00 – 5.00" />
+        </div>
+
+        <div class="input-group">
+          <label for="corte2">
+            <span class="label-badge c2">C2</span>
+            Segundo corte <span class="label-pct">30%</span>
+          </label>
+          <input type="number" id="corte2" step="0.01" min="0" max="5" placeholder="0.00 – 5.00" />
+        </div>
+
+        <button type="button" id="toggleCorte3Btn" class="btn-toggle" onclick="toggleTercerCorte()">
+          <span class="btn-toggle-icon">＋</span> Agregar nota del tercer corte
+        </button>
+
+        <div id="tercerCorteContainer" class="input-group" style="display:none;">
+          <label for="corte3">
+            <span class="label-badge c3">C3</span>
+            Tercer corte <span class="label-pct">40%</span>
+          </label>
+          <input type="number" id="corte3" step="0.01" min="0" max="5" placeholder="0.00 – 5.00" />
+        </div>
+
+        <button type="button" class="btn-calcular" onclick="calcularNotaFinal()">
+          Calcular Nota Final
+        </button>
+      </form>
+
+      <!-- RESULTADO -->
+      <div id="resultado"></div>
+
+    </div>
+
+    <!-- LINK CARD -->
+    <div class="link-card">
+      <div class="link-card-icon">📊</div>
+      <div class="link-card-text">
+        <strong>¿Quieres calcular tu nota por actividades?</strong>
+        <span>Desglose detallado de cada corte</span>
+      </div>
+      <a href="index2.html" class="link-card-btn">Ir →</a>
+    </div>
+
+    <!-- SUGERENCIAS -->
+    <div class="suggestions-box">
+      <span class="suggestions-icon">💬</span>
+      <span>¿Tienes sugerencias o encontraste un error? 
+        <a href="mailto:samuelumbariba@gmail.com" class="correo-link">samuelumbariba@gmail.com</a>
+      </span>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="UDES" class="footer-logo">
+      <div>
+        <strong>Universidad de Santander</strong><br>
+        Ingeniería de Sistemas · Sistemas UDES © 2025
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hidden");
+      }, 900);
+    });
+
+    function toggleTercerCorte() {
+      const contenedor = document.getElementById("tercerCorteContainer");
+      const boton = document.getElementById("toggleCorte3Btn");
+      const icon = boton.querySelector(".btn-toggle-icon");
+      if (contenedor.style.display === "none") {
+        contenedor.style.display = "flex";
+        boton.textContent = "";
+        icon.textContent = "－";
+        boton.appendChild(icon);
+        boton.append(" Ocultar tercer corte");
+        calcularNotaFinal();
+      } else {
+        contenedor.style.display = "none";
+        boton.textContent = "";
+        icon.textContent = "＋";
+        boton.appendChild(icon);
+        boton.append(" Agregar nota del tercer corte");
+        document.getElementById("corte3").value = "";
+        calcularNotaFinal();
+      }
+    }
+  </script>
+</body>
+</html>

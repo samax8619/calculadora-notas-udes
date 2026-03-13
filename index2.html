@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cálculo Detallado por Corte - UDES</title>
+  <link rel="icon" href="https://images2.alphacoders.com/999/999603.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index2.css" />
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader-inner">
+      <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="Cargando" class="img-loader">
+      <div class="loader-bar"><div class="loader-fill"></div></div>
+      <p class="texto-loader">Cargando calculadora…</p>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-content">
+      <a href="index.html" class="back-btn" title="Volver">← Volver</a>
+      <a href="https://udes.edu.co/" target="_blank" rel="noopener noreferrer">
+        <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png"
+             alt="Logo Universidad" class="logo-universidad" />
+      </a>
+      <span class="header-spacer"></span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <div class="hero-section">
+    <div class="hero-badge">
+      <span>📋</span>
+      <span>Cálculo por Actividades</span>
+    </div>
+    <h1 class="hero-title">Nota <em>por corte</em></h1>
+    <p class="hero-desc">Registra cada actividad con su porcentaje y calcula tu nota del corte</p>
+  </div>
+
+  <main>
+
+    <!-- INSTRUCCIONES CARD -->
+    <details class="instrucciones-card" open>
+      <summary>📌 ¿Cómo funciona?</summary>
+      <div class="instrucciones-body">
+        <ul>
+          <li>Selecciona el corte que vas a calcular.</li>
+          <li>Agrega cada actividad (talleres, exposiciones, proyectos…) con su nota y el porcentaje que representa.</li>
+          <li>Los porcentajes dentro del corte deben sumar <strong>100%</strong>.</li>
+          <li>El sistema calculará la nota del corte y su aporte a la nota final.</li>
+        </ul>
+        <div class="pesos-strip">
+          <div class="peso-item"><span class="peso-num">30%</span><span>Corte 1</span></div>
+          <div class="peso-sep">·</div>
+          <div class="peso-item"><span class="peso-num">30%</span><span>Corte 2</span></div>
+          <div class="peso-sep">·</div>
+          <div class="peso-item"><span class="peso-num">40%</span><span>Corte 3</span></div>
+        </div>
+      </div>
+    </details>
+
+    <!-- SELECCIÓN CORTE -->
+    <div class="card">
+      <div class="card-section-title">Selecciona el corte</div>
+      <div class="corte-buttons">
+        <button onclick="seleccionarCorte(1)" id="btn-c1" class="corte-btn">
+          <span class="corte-num">1</span>
+          <span class="corte-pct">30%</span>
+        </button>
+        <button onclick="seleccionarCorte(2)" id="btn-c2" class="corte-btn">
+          <span class="corte-num">2</span>
+          <span class="corte-pct">30%</span>
+        </button>
+        <button onclick="seleccionarCorte(3)" id="btn-c3" class="corte-btn">
+          <span class="corte-num">3</span>
+          <span class="corte-pct">40%</span>
+        </button>
+      </div>
+
+      <!-- TABLA ACTIVIDADES -->
+      <div id="notas-container" class="notas-container">
+        <p class="placeholder-msg">Selecciona un corte para agregar actividades</p>
+      </div>
+
+      <!-- ACCIONES ACTIVIDADES -->
+      <div class="activity-actions">
+        <button onclick="agregarNota()" class="btn-secondary">＋ Agregar actividad</button>
+        <button onclick="quitarNota()" class="btn-ghost">－ Quitar última</button>
+      </div>
+
+      <!-- CALCULAR -->
+      <div style="padding: 0 20px 20px;">
+        <button onclick="calcularCorte()" class="btn-calcular">Calcular Corte</button>
+      </div>
+
+      <!-- RESULTADO -->
+      <div id="resultado" class="resultado-box"></div>
+    </div>
+
+    <!-- BACK -->
+    <a href="index.html" class="volver-link">← Volver al simulador de nota final</a>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <img src="https://moria.aurens.com/organizations/3f9270f0-5ff6-410c-aef6-90b03eece093/logos/c67367-unisantander.png" alt="UDES" class="footer-logo">
+      <div>
+        <strong>Universidad de Santander</strong><br>
+        Ingeniería de Sistemas · Sistemas UDES © 2025
+      </div>
+    </div>
+  </footer>
+
+  <script src="script2.js"></script>
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hidden");
+      }, 900);
+    });
+  </script>
+</body>
+</html>
