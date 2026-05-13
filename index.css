@@ -469,3 +469,43 @@ footer {
   height: 36px;
   filter: brightness(0) invert(1) opacity(0.6);
 }
+/* ── AD BANNER ────────────────────────────────── */
+.ad-banner {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-decoration: none;
+}
+.ad-banner:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 52px rgba(3,82,166,0.28);
+}
+.ad-img {
+  width: 100%;
+  display: block;
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+.ad-footer {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.15);
+  padding: 10px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.ad-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.ad-ig {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
+}
